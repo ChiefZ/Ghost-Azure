@@ -82,7 +82,14 @@ config = {
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
             port: process.env.PORT
         },
-        forceAdminSSL: true
+        forceAdminSSL: true,
+        storage: {
+            active: 'ghost-azurestorage',
+            'ghost-azurestorage': {
+                container: 'ghost',
+                useHttps : "UseHttpsInEndpoint" //Optional: CDN protocol. Defaults to http if omitted. Set to "true", to enable.
+            }
+        },
     },
 
     // **Developers only need to edit below here**
